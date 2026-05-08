@@ -75,3 +75,28 @@ document.querySelectorAll('.principle-num').forEach(num => {
     num.style.opacity = '1';
   });
 });
+
+// ── TRANSLATION LOGIC ─────────────────────────────────────────────
+const langToggle = document.getElementById('langToggle');
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyTranslations(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  langToggle.textContent = lang === 'en' ? 'ES / EN' : 'EN / ES';
+  document.documentElement.lang = lang;
+}
+
+// Apply initial translations
+applyTranslations(currentLang);
+
+langToggle.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'es' : 'en';
+  localStorage.setItem('lang', currentLang);
+  applyTranslations(currentLang);
+});

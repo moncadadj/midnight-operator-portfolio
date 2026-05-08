@@ -1049,3 +1049,28 @@ footer span {
   .nav-links { display: none; }
   .section-inner { padding: 5rem 1.5rem; }
 }
+/* ── LANGUAGE TOGGLE ─────────────────────────────────────────── */
+.lang-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 2rem;
+  text-transform: uppercase;
+}
+
+.lang-toggle:hover {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+@media (max-width: 900px) {
+  .lang-toggle {
+    margin-left: 0;
+  }
+}
